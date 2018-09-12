@@ -11,7 +11,7 @@ namespace BloodTrace
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new BloodTrace.WelcomePage();
 		}
 
 		protected override void OnStart ()
