@@ -33,5 +33,10 @@ namespace BloodTrace.Pages
                 await Navigation.PopAsync();
             }
         }
+
+        private void TapSignUp_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SignUpPage());
+        }
     }
 }

@@ -39,6 +39,11 @@
                     <StackLayout Spacing="0">
                         <Label Text="Sign Up" FontAttributes="Bold"/>
                         <BoxView BackgroundColor="Black" HeightRequest="1"></BoxView>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="TapSignUp"
+                                                  NumberOfTapsRequired="1"
+                                                  Tapped="TapSignUp_Tapped"
+                        </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
