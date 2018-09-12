@@ -61,5 +61,17 @@ namespace BloodTrace.Services
             var json = await httpClient.GetStringAsync(bloodApiUrl);
             return JsonConvert.DeserializeObject<List<BloodUser>>(json);
         }
+
+        public async Task<bool> RegisterDonor(BloodUser bloodUser)
+        {
+            var json = JsonConvert.SerializeObject(bloodUser);
+            var httpClient = new HttpClient();
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
+            var bloodApiUrl = "http://localhost:50268/api/BloodUsers";
+            var response = await httpClient.PostAsync(bloodApiUrl, content);
+            return response.IsSuccessStatusCode;
+        }
     }
 }
