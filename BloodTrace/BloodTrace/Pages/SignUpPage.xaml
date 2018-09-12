@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BloodTrace.Pages.SignUpPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Signin Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0"
+                   Source="bloodlogo.png"
+                   Margin="0, 40, 0, 0"
+                   HeightRequest="200"
+                   WidthRequest="200"/>
+            <StackLayout Grid.Row="1" Margin="40, 20, 40, 0">
+                <Entry Placeholder="Email"
+                       PlaceholderColor="#707070"
+                       x:Name="EntEmail"/>
+                <Entry Placeholder="Confirm Password"
+                       PlaceholderColor="#707070"
+                       x:Name="EntPassword" IsPassword="True"/>
+                <Entry Placeholder="ConfirmPassword"
+                       PlaceholderColor="#707070"
+                       x:Name="EntConfirmPassword" IsPassword="True"/>
+                <Button Text="Sign Up"
+                        BackgroundColor="#c62729"
+                        TextColor="White"
+                        x:Name="BtnSignUp"
+                        Clicked="BtnSignUp_Clicked"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

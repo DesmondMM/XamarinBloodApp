@@ -16,5 +16,10 @@ namespace BloodTrace.Pages
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnSignUp_Clicked(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
