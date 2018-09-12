@@ -42,7 +42,7 @@
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer x:Name="TapSignUp"
                                                   NumberOfTapsRequired="1"
-                                                  Tapped="TapSignUp_Tapped"
+                                                  Tapped="TapSignUp_Tapped"/>
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </StackLayout>
