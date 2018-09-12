@@ -16,5 +16,13 @@ namespace BloodTrace.Pages
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnSearch_Clicked(object sender, EventArgs e)
+        {
+            var country = PickerCountry.Items[PickerCountry.SelectedIndex];
+            var bloodGroup = PickerBloodGroup.Items[PickerBloodGroup.SelectedIndex].Trim().Replace("+", "%2B");
+
+            Navigation.PushAsync(new DonorsListPage(country, bloodGroup));
+        }
+    }
 }
