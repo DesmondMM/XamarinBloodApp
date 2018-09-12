@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodTrace.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,20 @@ namespace BloodTrace.Pages
 			InitializeComponent ();
 		}
 
-        private void BtnLogin_Clicked(object sender, EventArgs e)
+        private async void BtnLogin_Clicked(object sender, EventArgs e)
         {
+            ApiServices apiServices = new ApiServices();
+            bool response = await apiServices.LoginUser(EntEmail.Text, EntPassword.Text);
 
+            if (!response)
+            {
+                await DisplayAlert("Alert", "Something Wrong...", "Cancel");
+            }
+            else
+            {
+                Navigation.InsertPageBefore(new HomePage(), this);
+                await Navigation.PopAsync();
+            }
         }
     }
 }

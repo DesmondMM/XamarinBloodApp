@@ -23,7 +23,7 @@ namespace BloodTrace.Services
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(registerModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("http://localhost:50268/api/Account/Register", content);
+            var response = await httpClient.PostAsync("bloodtracedes.azurewebsites.net/api/Account/Register", content);
             return response.IsSuccessStatusCode;
         }
 
@@ -36,7 +36,7 @@ namespace BloodTrace.Services
                 new KeyValuePair<string, string>("grant_type", "password"),
             };
 
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:50268/Token");
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://bloodtracedes.azurewebsites.net/Token");
             request.Content = new FormUrlEncodedContent(keyvalues);
             var httpClient = new HttpClient();
             var response = await httpClient.SendAsync(request);
@@ -48,7 +48,7 @@ namespace BloodTrace.Services
         {
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
-            var bloodApiUrl = "http://localhost:50268/api/BloodUsers";
+            var bloodApiUrl = "http://bloodtracedes.azurewebsites.net/api/BloodUsers";
             var json = await httpClient.GetStringAsync($"{bloodApiUrl}?bloodGroup={bloodType}&country={country}");
             return JsonConvert.DeserializeObject<List<BloodUser>>(json);
         }
@@ -57,7 +57,7 @@ namespace BloodTrace.Services
         {
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
-            var bloodApiUrl = "http://localhost:50268/api/BloodUsers";
+            var bloodApiUrl = "http://bloodtracedes.azurewebsites.net/api/BloodUsers";
             var json = await httpClient.GetStringAsync(bloodApiUrl);
             return JsonConvert.DeserializeObject<List<BloodUser>>(json);
         }
@@ -69,7 +69,7 @@ namespace BloodTrace.Services
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
-            var bloodApiUrl = "http://localhost:50268/api/BloodUsers";
+            var bloodApiUrl = "http://bloodtracedes.azurewebsites.net/api/BloodUsers";
             var response = await httpClient.PostAsync(bloodApiUrl, content);
             return response.IsSuccessStatusCode;
         }

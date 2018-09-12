@@ -12,7 +12,7 @@ namespace BloodTrace
 		{
 			InitializeComponent();
 
-			MainPage = new SigninPage();
+			MainPage = new NavigationPage(new SigninPage());
 		}
 
 		protected override void OnStart ()
