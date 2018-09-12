@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,24 @@ namespace BloodTrace.Services
             var response = await httpClient.SendAsync(request);
             var content = response.Content.ReadAsStringAsync();
             return response.IsSuccessStatusCode;
+        }
+
+        public async Task<List<BloodUser>> FindBlood(string country, string bloodType)
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
+            var bloodApiUrl = "http://localhost:50268/api/BloodUsers";
+            var json = await httpClient.GetStringAsync($"{bloodApiUrl}?bloodGroup={bloodType}&country={country}");
+            return JsonConvert.DeserializeObject<List<BloodUser>>(json);
+        }
+
+        public async Task<List<BloodUser>> LatestBloodUser()
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
+            var bloodApiUrl = "http://localhost:50268/api/BloodUsers";
+            var json = await httpClient.GetStringAsync(bloodApiUrl);
+            return JsonConvert.DeserializeObject<List<BloodUser>>(json);
         }
     }
 }
