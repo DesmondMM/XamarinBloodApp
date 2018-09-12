@@ -12,7 +12,13 @@ namespace BloodTrace
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new SigninPage());
+            if (!string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                MainPage = new NavigationPage(new HomePage());
+            } else if (string.IsNullOrEmpty(Settings.UserName) && string.IsNullOrEmpty(Settings.Password))
+            {
+                MainPage = new NavigationPage(new SigninPage());
+            }
 		}
 
 		protected override void OnStart ()

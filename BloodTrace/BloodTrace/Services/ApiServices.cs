@@ -1,5 +1,6 @@
 ﻿using BloodTrace.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -40,7 +41,12 @@ namespace BloodTrace.Services
             request.Content = new FormUrlEncodedContent(keyvalues);
             var httpClient = new HttpClient();
             var response = await httpClient.SendAsync(request);
-            var content = response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync();
+            JObject jObject =  JsonConvert.DeserializeObject<dynamic>(content);
+            var accessToken = jObject.Value<string>("access_token");
+            Settings.AccessToken = accessToken;
+            Settings.UserName = email;
+            Settings.Password = password;
             return response.IsSuccessStatusCode;
         }
 
