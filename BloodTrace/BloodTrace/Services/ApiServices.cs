@@ -17,13 +17,13 @@ namespace BloodTrace.Services
             {
                 Email = email,
                 Password = password,
-                ConfirmPasword = confirmPassword
+                ConfirmPassword = confirmPassword
             };
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(registerModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("bloodtracedes.azurewebsites.net/api/Account/Register", content);
+            var response = await httpClient.PostAsync("http://bloodtracedes.azurewebsites.net/api/Account/Register", content);
             return response.IsSuccessStatusCode;
         }
 

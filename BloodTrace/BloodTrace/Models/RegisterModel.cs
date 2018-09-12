@@ -8,6 +8,6 @@ namespace BloodTrace.Models
     {
         public string Email { get; set; }
         public string Password { get; set; }
-        public string ConfirmPasword { get; set; }
+        public string ConfirmPassword { get; set; }
     }
 }
