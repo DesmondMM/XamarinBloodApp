@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BloodTrace.Pages.SigninPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="bloodlogo.pn"
+                   Grid.Row="0"
+                   Margin="0, 40, 0,0"
+                   HeightRequest="200">
+                
+            </Image>
+            <StackLayout Grid.Row="1" Margin="40, 40, 40, 0">
+                <Entry x:Name="EntEmail"
+                       Placeholder="Email"
+                       PlaceholderColor="#707070">
+                    
+                </Entry>
+                <Entry x:Name="EntPassword"
+                       IsPassword="True" Placeholder="Passwod"
+                       PlaceholderColor="#707070">
+                    
+                </Entry>
+                <Button Text="Login"
+                        BackgroundColor="#c62729"
+                        TextColor="White"
+                        x:Name="BtnLogin"
+                        Clicked="BtnLogin_Clicked">
+                    
+                </Button>
+                <StackLayout Grid.Row="2" Padding="20" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Dont have an account?"/>
+                    <StackLayout Spacing="0">
+                        <Label Text="Sign Up" FontAttributes="Bold"/>
+                        <BoxView BackgroundColor="Black" HeightRequest="1"></BoxView>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

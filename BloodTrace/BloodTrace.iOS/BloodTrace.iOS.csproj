@@ -159,4 +159,13 @@
       <Name>BloodTrace</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bloodlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bloodlogo%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bloodlogo%403x.png" />
+  </ItemGroup>
 </Project>

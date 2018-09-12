@@ -1,3 +1,4 @@
+using BloodTrace.Pages;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace BloodTrace
 		{
 			InitializeComponent();
 
-			MainPage = new BloodTrace.WelcomePage();
+			MainPage = new SigninPage();
 		}
 
 		protected override void OnStart ()
