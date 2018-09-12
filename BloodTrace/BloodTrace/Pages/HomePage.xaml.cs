@@ -25,5 +25,25 @@ namespace BloodTrace.Pages
             Navigation.InsertPageBefore(new SigninPage(), this);
             Navigation.PopAsync();
         }
+
+        private void TapFindBlood_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new FindBloodGroup());
+        }
+
+        private void TapRegisterBlood_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterBlood());
+        }
+
+        private void TapLatestDonors_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LatestDonors());
+        }
+
+        private void TapHelp_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Help());
+        }
     }
 }
