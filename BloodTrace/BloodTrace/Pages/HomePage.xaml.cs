@@ -16,5 +16,14 @@ namespace BloodTrace.Pages
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void Tblogout_Clicked(object sender, EventArgs e)
+        {
+            Settings.UserName = "";
+            Settings.Password = "";
+            Settings.AccessToken = "";
+            Navigation.InsertPageBefore(new SigninPage(), this);
+            Navigation.PopAsync();
+        }
+    }
 }
