@@ -16,7 +16,8 @@ namespace BloodTrace.Pages
 		public SigninPage ()
 		{
 			InitializeComponent ();
-		}
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
 
         private async void BtnLogin_Clicked(object sender, EventArgs e)
         {
