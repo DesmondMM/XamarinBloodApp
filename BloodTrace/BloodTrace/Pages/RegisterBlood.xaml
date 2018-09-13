@@ -20,9 +20,9 @@
 
                 <Picker Title="Country" TextColor="#A5A7A8" x:Name="PickerCountry">
                     <Picker.Items>
-                        <x:String>USA</x:String>
-                        <x:String>England</x:String>
-                        <x:String>India</x:String>
+                        <x:String>SA</x:String>
+                        <x:String>Zimbabwe</x:String>
+                        <x:String>Nam</x:String>
                         <x:String>France</x:String>
                         <x:String>China</x:String>
                         <x:String>Germany</x:String>

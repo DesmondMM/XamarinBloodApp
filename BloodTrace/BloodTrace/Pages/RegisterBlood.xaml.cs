@@ -1,4 +1,7 @@
-﻿using Plugin.Media;
+﻿using BloodTrace.Helpers;
+using BloodTrace.Models;
+using BloodTrace.Services;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
@@ -20,9 +23,36 @@ namespace BloodTrace.Pages
 			InitializeComponent ();
 		}
 
-        private void BtnSubmit_Clicked(object sender, EventArgs e)
+        private async void BtnSubmit_Clicked(object sender, EventArgs e)
         {
+            var imageArray =FilesHelper.ReadFully(file.GetStream());
+            file.Dispose();
+            var country = PickerCountry.Items[PickerCountry.SelectedIndex];
+            var bloodGroup = PickerBloodGroup.Items[PickerBloodGroup.SelectedIndex];
 
+            DateTime dateTime = DateTime.Now;
+            int d = Convert.ToInt32(dateTime.ToOADate());
+
+            var bloodUser = new BloodUser()
+            {
+                Username = EntName.Text,
+                Email = EntEmail.Text,
+                Phone = EntPhone.Text,
+                BloodGroup = bloodGroup,
+                Country = country,
+                ImageArray = imageArray,
+                Date = d
+            };
+            ApiServices apiServices = new ApiServices();
+            bool response = await apiServices.RegisterDonor(bloodUser);
+            if (!response)
+            {
+                await DisplayAlert("Alert", "Something wrong", "Cancel");
+            }
+            else
+            {
+                await DisplayAlert("Hi", "Your record has beed added successfully", "Alright");
+            }
         }
 
         private async void TapOpenCamera_Tapped(object sender, EventArgs e)
