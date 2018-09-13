@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BloodTrace.Models
 {
-    class BloodUser
+    public class BloodUser
     {
         public int Id { get; set; }
         public string Username { get; set; }

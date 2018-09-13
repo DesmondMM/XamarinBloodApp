@@ -39,5 +39,11 @@ namespace BloodTrace.Pages
 
             LvBloodDonors.ItemsSource = BloodUsers;
         }
+
+        private void LvBloodDonors_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var selectedDonor = e.SelectedItem as BloodUser;
+            Navigation.PushAsync(new DonorProfilePage(selectedDonor));
+        }
     }
 }

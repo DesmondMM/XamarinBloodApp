@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BloodTrace.Pages.DonorsListPage">
     <ContentPage.Content>
-        <ListView Margin="5" x:Name="LvBloodDonors" HasUnevenRows="True">
+        <ListView Margin="5" x:Name="LvBloodDonors" HasUnevenRows="True" ItemSelected="LvBloodDonors_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
