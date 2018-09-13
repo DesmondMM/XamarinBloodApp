@@ -13,6 +13,18 @@ namespace BloodTrace.Models
         public string Country { get; set; }
         public string BloodGroup { get; set; }
         public string ImagePath { get; set; }
+
+        public string FullLogoPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(ImagePath))
+                {
+                    return string.Empty;
+                }
+                return string.Format("https://bloodtracedes.azurewebsites.net{0}", ImagePath.Substring(1));
+            }
+        }
         public int Date { get; set; }
         public object ImageArray { get; set; }
     }

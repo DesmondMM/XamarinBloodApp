@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BloodTrace.Pages.DonorsListPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView Margin="5" x:Name="LvBloodDonors" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.25*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding FullLogoPath}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="80"
+                                   WidthRequest="80"
+                                   Margin="5"
+                                   Grid.Column="0"></Image>
+
+                            <StackLayout Grid.Column="1" Margin="5,5,0,0">
+                                <Label Text="{Binding UserName}" VerticalOptions="Center" FontSize="16" TextColor="Black"/>
+                                <Label Text="{Binding BloodGroup}" VerticalOptions="Center" FontSize="14" TextColor="#E96950"/>
+                                <Label Text="{Binding Country}" VerticalOptions="Center" FontSize="12" TextColor="#A5A7A8"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

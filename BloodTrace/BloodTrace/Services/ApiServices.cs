@@ -53,7 +53,7 @@ namespace BloodTrace.Services
         public async Task<List<BloodUser>> FindBlood(string country, string bloodType)
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Settings.AccessToken);
             var bloodApiUrl = "http://bloodtracedes.azurewebsites.net/api/BloodUsers";
             var json = await httpClient.GetStringAsync($"{bloodApiUrl}?bloodGroup={bloodType}&country={country}");
             return JsonConvert.DeserializeObject<List<BloodUser>>(json);
@@ -62,7 +62,7 @@ namespace BloodTrace.Services
         public async Task<List<BloodUser>> LatestBloodUser()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Settings.AccessToken);
             var bloodApiUrl = "http://bloodtracedes.azurewebsites.net/api/BloodUsers";
             var json = await httpClient.GetStringAsync(bloodApiUrl);
             return JsonConvert.DeserializeObject<List<BloodUser>>(json);
@@ -74,7 +74,7 @@ namespace BloodTrace.Services
             var httpClient = new HttpClient();
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", "We will apdate further");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Settings.AccessToken);
             var bloodApiUrl = "http://bloodtracedes.azurewebsites.net/api/BloodUsers";
             var response = await httpClient.PostAsync(bloodApiUrl, content);
             return response.IsSuccessStatusCode;
