@@ -43,7 +43,12 @@ namespace BloodTrace.Pages
         private void LvBloodDonors_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var selectedDonor = e.SelectedItem as BloodUser;
-            Navigation.PushAsync(new DonorProfilePage(selectedDonor));
+            if (selectedDonor != null)
+            {
+                Navigation.PushAsync(new DonorProfilePage(selectedDonor));
+            }
+
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }
